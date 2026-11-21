@@ -23,7 +23,7 @@ fn parse(parser: &CooklangParser) -> Recipe {
 
 #[test]
 fn renders_markdown_without_cookcli_core() {
-    let parser = CooklangParser::new(Extensions::empty(), Converter::default());
+    let parser = CooklangParser::new(Extensions::all(), Converter::default());
     let recipe = parse(&parser);
 
     let md = markdown_to_string(&recipe, "Tea", 1.0, parser.converter()).expect("formats");
@@ -34,7 +34,7 @@ fn renders_markdown_without_cookcli_core() {
 
 #[test]
 fn renders_every_format_the_crate_advertises() {
-    let parser = CooklangParser::new(Extensions::empty(), Converter::default());
+    let parser = CooklangParser::new(Extensions::all(), Converter::default());
     let recipe = parse(&parser);
     let conv = parser.converter();
 

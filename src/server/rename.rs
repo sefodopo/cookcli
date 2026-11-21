@@ -131,7 +131,7 @@ pub fn rewrite_references(source: &str, writer_dir: &Utf8Path, target: &Target) 
     let mut edits: Vec<(Range<usize>, String)> = Vec::new();
     let mut skipped_lines = Vec::new();
 
-    for event in PullParser::new(source, Extensions::empty()) {
+    for event in PullParser::new(source, Extensions::all()) {
         let Event::Ingredient(ingredient) = event else {
             continue;
         };
